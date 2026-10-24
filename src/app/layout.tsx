@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Instrument_Serif, Chivo_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -23,23 +22,48 @@ const khTeka = localFont({
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
+const instrumentSerif = localFont({
+  src: [
+    {
+      path: "../../public/fonts/InstrumentSerif-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/InstrumentSerif-Italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+  ],
   variable: "--font-instrument",
   display: "swap",
 });
 
-const chivoMono = Chivo_Mono({
-  weight: ["400", "500"],
-  subsets: ["latin"],
+const chivoMono = localFont({
+  src: [
+    {
+      path: "../../public/fonts/ChivoMono-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/ChivoMono-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   variable: "--font-chivo",
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Inter-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
   variable: "--font-inter",
   display: "swap",
 });
