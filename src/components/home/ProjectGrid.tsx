@@ -4,101 +4,108 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { SHOWCASE_PROJECTS, ShowcaseProject } from "@/data/projects";
-import RollingText from "@/components/common/RollingText";
 
 function ProjectCard({ project }: { project: ShowcaseProject }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const cardContent = (
+  const card = (
     <div
-      className="group relative flex flex-col gap-3 cursor-pointer"
+      className="group flex flex-col gap-2.5 w-full cursor-pointer mb-8 sm:mb-12"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Visual Canvas Container */}
-      <div className="relative w-full aspect-[4/3] rounded overflow-hidden bg-[#0d0d0d] border border-[#202020] transition-colors duration-300 group-hover:border-neutral-500">
-        {/* Default Image (Image 1) */}
-        <div
-          className={`absolute inset-0 transition-opacity duration-500 ${
-            isHovered ? "opacity-0" : "opacity-100"
+      {/* Image Container */}
+      <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#f0f0f0]">
+        {/* Main Image */}
+        <Image
+          src={project.image1}
+          alt={project.title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className={`object-cover transition-all duration-700 ease-out group-hover:scale-105 ${
+            isHovered && project.image2 ? "opacity-0" : "opacity-100"
           }`}
-        >
-          <Image
-            src={project.image1}
-            alt={project.title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            priority={project.id === "dialogue" || project.id === "piled"}
-          />
-        </div>
+          priority={project.id === "dialogue"}
+        />
 
-        {/* Hover Image (Image 2) */}
-        <div
-          className={`absolute inset-0 transition-opacity duration-500 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-        >
+        {/* Hover Image */}
+        {project.image2 && (
           <Image
             src={project.image2}
-            alt={`${project.title} hover state`}
+            alt={`${project.title} detail`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover scale-105 transition-transform duration-700 ease-out"
+            className={`object-cover transition-all duration-700 ease-out group-hover:scale-105 ${
+              isHovered ? "opacity-100" : "opacity-0"
+            }`}
           />
-        </div>
+        )}
 
-        {/* Floating Detail Indicator if link exists */}
+        {/* Explore badge on linked projects */}
         {project.href && (
-          <div className="absolute top-3 right-3 px-2 py-1 bg-black/70 backdrop-blur-md rounded text-[10px] font-mono tracking-wider text-white opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute top-3 right-3 px-2 py-0.5 bg-black/80 text-white text-[10px] font-mono tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
             EXPLORE ↗
           </div>
         )}
       </div>
 
-      {/* Meta Bar */}
-      <div className="flex items-baseline justify-between font-mono text-xs text-neutral-300 pt-1">
-        <span className="font-medium tracking-wide group-hover:text-white transition-colors">
+      {/* Project Title */}
+      <div className="pt-1">
+        <h3 className="font-sans font-medium text-xs sm:text-[13px] tracking-[-0.05em] uppercase text-[#090909] group-hover:text-[#f60c09] transition-colors">
           {project.title}
-        </span>
-        <span className="text-neutral-500 text-[11px] font-mono">
-          {project.year}
-        </span>
+        </h3>
       </div>
     </div>
   );
 
   if (project.href) {
-    return <Link href={project.href}>{cardContent}</Link>;
+    return <Link href={project.href} className="block w-full">{card}</Link>;
   }
 
-  return <div>{cardContent}</div>;
+  return card;
 }
 
 export default function ProjectGrid() {
-  return (
-    <section id="work" className="w-full py-20 px-4 sm:px-8 border-b border-[#181818]">
-      <div className="max-w-7xl mx-auto flex flex-col gap-10">
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#1f1f1f] pb-6">
-          <div>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-              [ PORTFOLIO ]
-            </span>
-            <h2 className="font-teka text-3xl sm:text-4xl text-white uppercase tracking-tight">
-              Featured Collaborations
-            </h2>
-          </div>
-          <div className="font-mono text-xs text-neutral-400">
-            Selected works & installations
-          </div>
-        </div>
+  // Stack 1: DIA LO GUE, PILED, OPPO
+  const stack1 = SHOWCASE_PROJECTS.filter((p) =>
+    ["dialogue", "piled", "oppo"].includes(p.id)
+  );
 
-        {/* 3-Column Responsive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-          {SHOWCASE_PROJECTS.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+  // Stack 2: ROH, JAVA JAZZ, SEN MATCHA
+  const stack2 = SHOWCASE_PROJECTS.filter((p) =>
+    ["roh", "javajazz", "senmatcha"].includes(p.id)
+  );
+
+  // Stack 3: WARDAH, GAIA, ESPLANADE
+  const stack3 = SHOWCASE_PROJECTS.filter((p) =>
+    ["wardah", "gaia", "esplanade"].includes(p.id)
+  );
+
+  return (
+    <section id="work" className="w-full bg-white pt-12 pb-20 px-4 sm:px-8 border-b border-[#ebebeb]">
+      <div className="max-w-[1400px] mx-auto">
+        {/* 3-Column Asymmetric Grid matching Framer stacks */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
+          {/* Column 1 / Stack 1 */}
+          <div className="flex flex-col w-full">
+            {stack1.map((p) => (
+              <ProjectCard key={p.id} project={p} />
+            ))}
+          </div>
+
+          {/* Column 2 / Stack 2 */}
+          <div className="flex flex-col w-full lg:pt-8">
+            {stack2.map((p) => (
+              <ProjectCard key={p.id} project={p} />
+            ))}
+          </div>
+
+          {/* Column 3 / Stack 3 */}
+          <div className="flex flex-col w-full lg:pt-16">
+            {stack3.map((p) => (
+              <ProjectCard key={p.id} project={p} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

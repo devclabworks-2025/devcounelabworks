@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import PixelDitherBg from "@/components/common/PixelDitherBg";
 import CollaborationCTA from "@/components/home/CollaborationCTA";
 import { GALLERY_ITEMS, GalleryCard } from "@/data/gallery";
 import { X } from "lucide-react";
@@ -11,21 +10,19 @@ export default function GalleryPage() {
   const [selectedCard, setSelectedCard] = useState<GalleryCard | null>(null);
 
   return (
-    <div className="relative w-full">
-      <PixelDitherBg />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 sm:py-24 flex flex-col gap-16">
+    <div className="relative w-full bg-white text-[#090909] pt-24 sm:pt-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 sm:py-20 flex flex-col gap-16">
         {/* Header */}
-        <div className="flex flex-col gap-2 border-b border-[#1c1c1c] pb-8">
-          <span className="font-mono text-xs uppercase tracking-widest text-neutral-500">
+        <div className="flex flex-col gap-2 border-b border-[#ebebeb] pb-8">
+          <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
             [ ARCHIVE ]
           </span>
 
-          <h1 className="font-teka text-5xl sm:text-7xl text-white uppercase tracking-tight font-light">
+          <h1 className="font-teka text-5xl sm:text-7xl text-[#090909] uppercase tracking-tight font-light">
             Gallery
           </h1>
 
-          <p className="font-serif italic text-2xl text-neutral-300">
+          <p className="font-serif italic text-2xl text-neutral-600">
             Curated past works.
           </p>
         </div>
@@ -36,9 +33,9 @@ export default function GalleryPage() {
             <div
               key={item.id}
               onClick={() => setSelectedCard(item)}
-              className="group cursor-pointer rounded overflow-hidden border border-[#1f1f1f] bg-[#0c0c0c] hover:border-neutral-500 transition-all flex flex-col"
+              className="group cursor-pointer overflow-hidden border border-[#e5e5e5] bg-white hover:border-[#090909] transition-all flex flex-col"
             >
-              <div className="relative w-full aspect-[3/4] overflow-hidden bg-black">
+              <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#f5f5f5]">
                 <Image
                   src={item.thumb}
                   alt={item.title}
@@ -48,12 +45,12 @@ export default function GalleryPage() {
                 />
               </div>
 
-              <div className="p-4 flex flex-col gap-1.5 font-mono">
-                <div className="flex items-center justify-between text-[11px] text-neutral-500">
+              <div className="p-4 flex flex-col gap-1.5 font-sans">
+                <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500">
                   <span className="truncate pr-2">{item.category}</span>
                   <span>{item.year}</span>
                 </div>
-                <h3 className="text-white text-xs font-semibold tracking-wide group-hover:text-neutral-200 transition-colors line-clamp-2">
+                <h3 className="text-[#090909] text-xs font-semibold tracking-tight group-hover:text-[#f60c09] transition-colors line-clamp-2">
                   {item.title}
                 </h3>
               </div>
@@ -64,22 +61,22 @@ export default function GalleryPage() {
         {/* Lightbox Modal */}
         {selectedCard && (
           <div
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200"
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-in fade-in duration-200"
             onClick={() => setSelectedCard(null)}
           >
             <div
-              className="relative max-w-4xl w-full bg-[#111111] border border-[#2a2a2a] rounded-lg overflow-hidden flex flex-col"
+              className="relative max-w-4xl w-full bg-white border border-[#e5e5e5] rounded overflow-hidden flex flex-col shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedCard(null)}
-                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center border border-neutral-700 transition-colors"
+                className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center transition-colors"
                 aria-label="Close modal"
               >
-                <X size={18} />
+                <X size={16} />
               </button>
 
-              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-black">
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-[#f5f5f5]">
                 <Image
                   src={selectedCard.main || selectedCard.thumb}
                   alt={selectedCard.title}
@@ -89,12 +86,12 @@ export default function GalleryPage() {
                 />
               </div>
 
-              <div className="p-6 font-mono border-t border-[#222222] flex flex-col gap-2">
-                <div className="flex items-center justify-between text-xs text-neutral-400">
+              <div className="p-6 font-sans border-t border-[#ebebeb] flex flex-col gap-1.5">
+                <div className="flex items-center justify-between text-xs font-mono text-neutral-500">
                   <span>{selectedCard.category}</span>
                   <span>{selectedCard.year}</span>
                 </div>
-                <h2 className="font-teka text-2xl sm:text-3xl text-white uppercase tracking-tight">
+                <h2 className="font-teka text-2xl sm:text-3xl text-[#090909] uppercase tracking-tight">
                   {selectedCard.title}
                 </h2>
               </div>
@@ -103,11 +100,7 @@ export default function GalleryPage() {
         )}
 
         {/* Closing CTA */}
-        <CollaborationCTA
-          title="They didn't just see the future, they build it."
-          subtitle="Now, it's your move."
-          buttonText="LETS CREATE"
-        />
+        <CollaborationCTA />
       </div>
     </div>
   );

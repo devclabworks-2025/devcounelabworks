@@ -135,7 +135,7 @@ export default function RootLayout({
       lang="en"
       className={`${khTeka.variable} ${instrumentSerif.variable} ${chivoMono.variable} ${inter.variable}`}
     >
-      <body className="min-h-screen bg-black text-white flex flex-col selection:bg-white selection:text-black">
+      <body className="min-h-screen bg-white text-[#090909] flex flex-col selection:bg-[#090909] selection:text-white">
         <Header />
         <main className="flex-1 w-full">{children}</main>
         <Footer />

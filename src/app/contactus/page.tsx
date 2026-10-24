@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import PixelDitherBg from "@/components/common/PixelDitherBg";
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
 export default function ContactPage() {
@@ -49,21 +48,19 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative w-full">
-      <PixelDitherBg />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 py-16 sm:py-24 flex flex-col gap-16 sm:gap-24">
+    <div className="relative w-full bg-white text-[#090909] pt-24 sm:pt-32">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 py-12 sm:py-20 flex flex-col gap-16 sm:gap-20">
         {/* Header */}
-        <div className="flex flex-col gap-4 border-b border-[#1c1c1c] pb-12">
-          <span className="font-mono text-xs uppercase tracking-widest text-neutral-500">
+        <div className="flex flex-col gap-4 border-b border-[#ebebeb] pb-12">
+          <span className="font-mono text-xs uppercase tracking-widest text-neutral-400">
             [ CONTACT ]
           </span>
 
-          <h1 className="font-teka text-4xl sm:text-6xl md:text-7xl text-white uppercase tracking-tight font-light">
+          <h1 className="font-teka text-4xl sm:text-6xl md:text-7xl text-[#090909] uppercase tracking-tight font-light">
             You’re ready. Let’s talk about your next project.
           </h1>
 
-          <p className="font-serif italic text-xl sm:text-2xl text-neutral-300 pt-2">
+          <p className="font-serif italic text-xl sm:text-2xl text-neutral-600 pt-2">
             Tell us about yourself, and a little bit of your vision. Let’s make it happen.
           </p>
         </div>
@@ -71,36 +68,36 @@ export default function ContactPage() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Column: Direct Info */}
-          <div className="lg:col-span-5 space-y-8 font-mono text-xs">
+          <div className="lg:col-span-5 space-y-8 font-sans text-xs">
             <div className="space-y-2">
-              <span className="text-neutral-500 uppercase tracking-wider block text-[11px]">
+              <span className="text-neutral-400 font-mono uppercase tracking-wider block text-[11px]">
                 STUDIO LOCATION
               </span>
-              <p className="text-neutral-300 leading-relaxed">
+              <p className="text-neutral-700 leading-relaxed text-sm">
                 Jl. Sukagalih No. 104, Sukagalih, Kec. Sukajadi,<br />
                 Kota Bandung, Jawa Barat 40163
               </p>
             </div>
 
             <div className="space-y-2">
-              <span className="text-neutral-500 uppercase tracking-wider block text-[11px]">
+              <span className="text-neutral-400 font-mono uppercase tracking-wider block text-[11px]">
                 OFFICIAL EMAIL
               </span>
               <a
                 href="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=+contact@counelabworks.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:underline text-sm block"
+                className="text-[#090909] hover:text-[#f60c09] hover:underline text-sm font-medium block"
               >
                 contact@counelabworks.com ↗
               </a>
             </div>
 
             <div className="space-y-2">
-              <span className="text-neutral-500 uppercase tracking-wider block text-[11px]">
+              <span className="text-neutral-400 font-mono uppercase tracking-wider block text-[11px]">
                 RESPONSE TIME
               </span>
-              <p className="text-neutral-400">
+              <p className="text-neutral-500 text-sm">
                 Direct studio inquiries are typically reviewed within 24–48 hours.
               </p>
             </div>
@@ -108,29 +105,29 @@ export default function ContactPage() {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-lg border border-[#222222] bg-[#0c0c0c] shadow-xl">
+            <div className="p-8 sm:p-10 border border-[#e5e5e5] bg-[#fafafa] shadow-sm">
               <h2 className="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-6">
                 [ CONNECT ]
               </h2>
 
               {status === "success" ? (
-                <div className="p-6 rounded bg-[#111111] border border-neutral-700 flex flex-col items-center text-center gap-3 animate-in fade-in">
-                  <CheckCircle2 size={32} className="text-emerald-400" />
-                  <h3 className="font-teka text-2xl text-white uppercase tracking-tight">
+                <div className="p-8 bg-white border border-[#e5e5e5] flex flex-col items-center text-center gap-3">
+                  <CheckCircle2 size={36} className="text-emerald-500" />
+                  <h3 className="font-teka text-2xl text-[#090909] uppercase tracking-tight">
                     Transmission Received
                   </h3>
-                  <p className="font-mono text-xs text-neutral-400 max-w-sm leading-relaxed">
+                  <p className="font-sans text-xs sm:text-sm text-neutral-600 max-w-sm leading-relaxed">
                     Thank you for reaching out. We will review your project details and get in touch with you shortly.
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
-                    className="mt-4 px-6 py-2 rounded bg-white text-black font-mono text-xs uppercase tracking-wider hover:bg-neutral-200 transition-colors"
+                    className="mt-4 px-6 py-2.5 bg-[#090909] text-white font-mono text-xs uppercase tracking-wider hover:bg-neutral-800 transition-colors"
                   >
                     Send Another Message
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6 font-mono text-xs">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5 font-sans text-xs">
                   {/* Anti-spam honeypot */}
                   <input
                     type="text"
@@ -146,9 +143,9 @@ export default function ContactPage() {
                   />
 
                   {/* Name */}
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="name" className="text-neutral-400">
-                      Name <span className="text-neutral-500">*</span>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="name" className="text-neutral-600 font-medium">
+                      Name <span className="text-[#f60c09]">*</span>
                     </label>
                     <input
                       id="name"
@@ -159,14 +156,14 @@ export default function ContactPage() {
                         setFormData({ ...formData, name: e.target.value })
                       }
                       placeholder="Your full name"
-                      className="w-full px-4 py-3 bg-black border border-[#2a2a2a] rounded text-white text-xs focus:outline-none focus:border-white transition-colors placeholder:text-neutral-600"
+                      className="w-full px-4 py-3 bg-white border border-[#d6d6d6] text-[#090909] text-xs focus:outline-none focus:border-black transition-colors placeholder:text-neutral-400"
                     />
                   </div>
 
                   {/* Organization / Company */}
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="company" className="text-neutral-400">
-                      Organization / Company <span className="text-neutral-500">*</span>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="company" className="text-neutral-600 font-medium">
+                      Organization / Company <span className="text-[#f60c09]">*</span>
                     </label>
                     <input
                       id="company"
@@ -177,14 +174,14 @@ export default function ContactPage() {
                         setFormData({ ...formData, company: e.target.value })
                       }
                       placeholder="Studio, company, or individual"
-                      className="w-full px-4 py-3 bg-black border border-[#2a2a2a] rounded text-white text-xs focus:outline-none focus:border-white transition-colors placeholder:text-neutral-600"
+                      className="w-full px-4 py-3 bg-white border border-[#d6d6d6] text-[#090909] text-xs focus:outline-none focus:border-black transition-colors placeholder:text-neutral-400"
                     />
                   </div>
 
                   {/* Email */}
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="email" className="text-neutral-400">
-                      Email <span className="text-neutral-500">*</span>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="email" className="text-neutral-600 font-medium">
+                      Email <span className="text-[#f60c09]">*</span>
                     </label>
                     <input
                       id="email"
@@ -195,14 +192,14 @@ export default function ContactPage() {
                         setFormData({ ...formData, email: e.target.value })
                       }
                       placeholder="your.email@example.com"
-                      className="w-full px-4 py-3 bg-black border border-[#2a2a2a] rounded text-white text-xs focus:outline-none focus:border-white transition-colors placeholder:text-neutral-600"
+                      className="w-full px-4 py-3 bg-white border border-[#d6d6d6] text-[#090909] text-xs focus:outline-none focus:border-black transition-colors placeholder:text-neutral-400"
                     />
                   </div>
 
                   {/* Message */}
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="message" className="text-neutral-400">
-                      Message <span className="text-neutral-500">*</span>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="message" className="text-neutral-600 font-medium">
+                      Message <span className="text-[#f60c09]">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -213,13 +210,13 @@ export default function ContactPage() {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       placeholder="Briefly describe your vision, timeline, and location..."
-                      className="w-full px-4 py-3 bg-black border border-[#2a2a2a] rounded text-white text-xs focus:outline-none focus:border-white transition-colors placeholder:text-neutral-600 resize-y"
+                      className="w-full px-4 py-3 bg-white border border-[#d6d6d6] text-[#090909] text-xs focus:outline-none focus:border-black transition-colors placeholder:text-neutral-400 resize-y"
                     />
                   </div>
 
                   {/* Error Notification */}
                   {status === "error" && (
-                    <div className="p-3 rounded bg-red-950/40 border border-red-800 text-red-300 flex items-center gap-2 text-xs">
+                    <div className="p-3 bg-red-50 border border-red-200 text-red-600 flex items-center gap-2 text-xs">
                       <AlertCircle size={14} />
                       <span>{errorMessage}</span>
                     </div>
@@ -229,7 +226,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="w-full py-4 mt-2 bg-white text-black font-mono text-xs uppercase tracking-widest font-semibold rounded hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3.5 mt-2 bg-[#090909] text-white font-mono text-xs uppercase tracking-widest font-semibold hover:bg-black transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === "submitting" ? (
                       <>

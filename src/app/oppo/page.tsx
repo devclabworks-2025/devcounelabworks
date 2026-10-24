@@ -2,7 +2,6 @@ import React from "react";
 import { Metadata } from "next";
 import { PROJECT_DETAILS } from "@/data/projects";
 import ProjectDetailHero from "@/components/projects/ProjectDetailHero";
-import PixelDitherBg from "@/components/common/PixelDitherBg";
 
 export const metadata: Metadata = {
   title: "OPPO — 1000+ Lights Controlled by Phone",
@@ -13,8 +12,7 @@ export const metadata: Metadata = {
 export default function OppoPage() {
   const project = PROJECT_DETAILS.oppo;
   return (
-    <div className="relative w-full">
-      <PixelDitherBg />
+    <div className="relative w-full bg-white">
       <ProjectDetailHero project={project} />
     </div>
   );

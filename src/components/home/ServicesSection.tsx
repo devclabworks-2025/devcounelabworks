@@ -2,87 +2,108 @@
 
 import React from "react";
 import Link from "next/link";
-import RollingText from "@/components/common/RollingText";
 
-const SERVICES = [
-  {
-    number: "01",
-    title: "Interactive Brand Experience",
-    description: "Elevate your brand. Stand out from the rest.",
-    details: "Immersive retail showcases, kinetic flagship installations, and responsive sensory environments that convert passive onlookers into active participants.",
-  },
-  {
-    number: "02",
-    title: "Concept Prototyping",
-    description: "Digital vision meets physical precision.",
-    details: "Rapid iteration across firmware, sensor design, and physical computing to validate unprecedented interactive mechanics before full-scale manufacturing.",
-  },
-  {
-    number: "03",
-    title: "Art Installation",
-    description: "The manifestation of nuance and wonder.",
-    details: "Large-scale sculptural and motorized systems engineered in partnership with world-renowned artists, galleries, museums, and public spaces.",
-  },
-  {
-    number: "04",
-    title: "Software & Hardware Development",
-    description: "From code to circuitry. Navigate and build.",
-    details: "Custom low-level microcontrollers, computer vision, audio-reactive engines, and cloud telemetry woven seamlessly into physical architecture.",
-  },
-];
-
-export const GOOGLE_PORTFOLIO_URL =
+const PORTFOLIO_URL =
   "https://docs.google.com/presentation/d/e/2PACX-1vTIHbopaXAvpcHNj6a1yTfjRNU68swgAjfye1PTfVg9nd-3hFZCVfef3azOGEc__u1DdfxEzCto2EWT/pub?start=false&loop=false&delayms=60000&slide=id.g1c1457de5f13d530_138";
 
 export default function ServicesSection() {
   return (
-    <section className="w-full py-24 px-4 sm:px-8 border-b border-[#181818] bg-black">
-      <div className="max-w-7xl mx-auto flex flex-col gap-16">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-[#1f1f1f] pb-6">
-          <div>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
+    <section className="relative w-full bg-white py-20 sm:py-28 px-4 sm:px-8 border-b border-[#ebebeb] overflow-hidden">
+      <div className="max-w-[1400px] mx-auto min-h-[600px] sm:min-h-[700px] flex flex-col justify-between relative">
+        {/* Top Row: Service 1 (Left) & Service 2 (Right) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-between items-start z-10">
+          {/* Top Left: Interactive Brand Experience */}
+          <div className="flex flex-col items-start max-w-sm">
+            <span className="text-[11px] font-mono tracking-widest text-neutral-400 uppercase mb-2">
               [OUR WORK]
             </span>
-            <h2 className="font-teka text-3xl sm:text-5xl text-white uppercase tracking-tight">
-              Disciplines & Capabilities
-            </h2>
+            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#090909] leading-tight">
+              Interactive
+              <br />
+              Brand Experience
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-neutral-500 mt-3 leading-relaxed">
+              Elevate your brand. Stand out from the rest.
+            </p>
           </div>
 
-          <div className="flex items-center gap-4">
-            <a
-              href={GOOGLE_PORTFOLIO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 border border-white text-white hover:bg-white hover:text-black font-mono text-xs uppercase tracking-wider rounded transition-colors"
-            >
-              open portfolio ↗
-            </a>
+          {/* Top Right: Concept Prototyping */}
+          <div className="flex flex-col items-start md:items-end text-left md:text-right max-w-sm md:ml-auto">
+            <span className="text-[11px] font-mono tracking-widest text-neutral-400 uppercase mb-2">
+              [OUR WORK]
+            </span>
+            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#090909] leading-tight">
+              Concept
+              <br />
+              Prototyping
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-neutral-500 mt-3 leading-relaxed">
+              Digital vision meets physical precision.
+            </p>
           </div>
         </div>
 
-        {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {SERVICES.map((s) => (
-            <div
-              key={s.number}
-              className="p-8 rounded border border-[#1e1e1e] bg-[#080808] hover:border-neutral-500 transition-colors flex flex-col justify-between gap-6"
-            >
-              <div className="space-y-3">
-                <span className="font-mono text-xs text-neutral-500">{s.number}</span>
-                <h3 className="font-teka text-2xl sm:text-3xl text-white uppercase tracking-tight">
-                  {s.title}
-                </h3>
-                <p className="font-serif italic text-lg text-neutral-300">
-                  {s.description}
-                </p>
-              </div>
+        {/* Center Floating 3D Floppy Disk Mascot & Portfolio Button */}
+        <div className="my-12 sm:my-8 flex flex-col items-center justify-center z-10 pointer-events-auto">
+          {/* Animated 3D Disk Mascot */}
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 flex items-center justify-center">
+            <video
+              src="/videos/rotating-disket.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-contain mix-blend-multiply pointer-events-none"
+            />
+          </div>
 
-              <p className="font-mono text-xs text-neutral-400 leading-relaxed pt-4 border-t border-[#181818]">
-                {s.details}
-              </p>
-            </div>
-          ))}
+          {/* Open Portfolio Button */}
+          <a
+            href={PORTFOLIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-4 inline-flex items-center gap-3 px-6 py-2.5 border border-[#111111] bg-white text-[#090909] hover:bg-[#090909] hover:text-white transition-all duration-300 shadow-sm"
+          >
+            <span className="font-mono text-xs sm:text-sm tracking-[0.25em] uppercase font-medium">
+              o p e n &nbsp; p o r t f o l i o
+            </span>
+            <span className="text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+              ↗
+            </span>
+          </a>
+        </div>
+
+        {/* Bottom Row: Service 3 (Left) & Service 4 (Right) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-between items-end z-10">
+          {/* Bottom Left: Art Installation */}
+          <div className="flex flex-col items-start max-w-sm">
+            <span className="text-[11px] font-mono tracking-widest text-neutral-400 uppercase mb-2">
+              [OUR WORK]
+            </span>
+            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#090909] leading-tight">
+              Art
+              <br />
+              Installation
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-neutral-500 mt-3 leading-relaxed">
+              The manifestation of nuance and wonder.
+            </p>
+          </div>
+
+          {/* Bottom Right: Software & Hardware Development */}
+          <div className="flex flex-col items-start md:items-end text-left md:text-right max-w-sm md:ml-auto">
+            <span className="text-[11px] font-mono tracking-widest text-neutral-400 uppercase mb-2">
+              [OUR WORK]
+            </span>
+            <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#090909] leading-tight">
+              Software &amp; Hardware
+              <br />
+              Development
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-neutral-500 mt-3 leading-relaxed">
+              From code to circuitry. Navigate and build.
+            </p>
+          </div>
         </div>
       </div>
     </section>

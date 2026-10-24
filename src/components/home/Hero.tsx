@@ -1,48 +1,61 @@
 "use client";
 
 import React from "react";
-import ScrambleText from "@/components/common/ScrambleText";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-32 px-4 sm:px-8 border-b border-[#181818]">
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
-        {/* Brand Typography Banner */}
-        <div className="flex flex-col gap-2">
-          <div className="font-mono text-xs sm:text-sm tracking-widest text-neutral-400 uppercase">
-            <ScrambleText text="[ sketch to circuit ]" delay={0.2} />
-          </div>
+    <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-black text-white">
+      {/* Background Fullscreen Video */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/5ILRvlYXf72kHSVHqpa3snGzjU.jpg"
+          className="w-full h-full object-cover object-center"
+        >
+          <source src="/videos/CLW_LogoReveal_4-4.mp4" type="video/mp4" />
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
+        {/* Soft Vignette Mask */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+      </div>
 
-          <h1 className="font-teka text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight text-white uppercase font-light">
-            Coune LabWorks
-          </h1>
-
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pt-2">
-            <p className="font-serif italic text-2xl sm:text-4xl md:text-5xl text-neutral-300">
-              art & technology
-            </p>
-            <p className="font-mono text-xs sm:text-sm text-neutral-400 max-w-md leading-relaxed">
-              Those with wings shall keep flying. We build interfaces that work different. Every circuit is part art, part engineering, fully intentional.
-            </p>
-          </div>
+      {/* Hero Bottom-Left Typography Lockup */}
+      <div className="absolute bottom-10 left-6 sm:bottom-14 sm:left-12 lg:bottom-16 lg:left-16 z-10 flex flex-col items-start gap-1">
+        {/* Box 1: counelabworks */}
+        <div className="bg-white px-2.5 py-1 inline-flex items-center shadow-md">
+          <span className="font-sans font-bold text-[22px] sm:text-[30px] md:text-[34px] tracking-[-0.08em] leading-none text-black">
+            counelabworks
+          </span>
         </div>
 
-        {/* Video / Visual Hero Asset */}
-        <div className="relative w-full aspect-[16/9] max-h-[640px] rounded-lg overflow-hidden border border-[#222222] bg-[#0c0c0c]">
-          <video
-            src="/videos/hero-video.mp4"
-            poster="/images/5ILRvlYXf72kHSVHqpa3snGzjU.jpg"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-          
-          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-neutral-300">
-            <span>[ SYSTEM: ACTIVE ]</span>
-            <span>BANDUNG 40163</span>
+        {/* Box 2: art & */}
+        <div className="bg-white px-3 py-1 inline-flex items-center shadow-md">
+          <span className="font-sans font-bold text-[22px] sm:text-[30px] md:text-[34px] tracking-[-0.08em] leading-none text-black">
+            art &amp;{" "}
+          </span>
+        </div>
+
+        {/* Box 3: technology */}
+        <div className="bg-white px-2.5 py-1 inline-flex items-center shadow-md">
+          <span className="font-sans font-bold text-[22px] sm:text-[30px] md:text-[34px] tracking-[-0.08em] leading-none text-black">
+            technology
+          </span>
+        </div>
+
+        {/* Hero Caps Asset */}
+        <div className="pt-4 sm:pt-6">
+          <div className="relative w-[130px] sm:w-[213px] h-[20px]">
+            <Image
+              src="/images/QQSH0EFe72FE80s0WBSXXqmkzhI.png"
+              alt="Coune LabWorks"
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </div>
         </div>
       </div>

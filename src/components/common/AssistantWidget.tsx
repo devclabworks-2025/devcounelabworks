@@ -37,70 +37,53 @@ const KB: {
   ],
   answers: {
     services: {
-      text: `We bridge the gap between imagination and engineering, transforming complex concepts into tangible realities. Our expertise is distilled into four core pillars of development:
+      text: `We bridge imagination and engineering, transforming complex concepts into tangible realities:
 
-◈ Interactive Brand Experiences: We design immersive environments that command attention. By blending custom hardware and intuitive interfaces, we turn your brand into a destination that visitors don't just see, but actively engage with.
-
-◈ Art Installation: We specialize in the "impossible." By integrating advanced robotics, pneumatics, and precision electronics, we build complex installations that breathe, move, and respond—bringing your vision to life with technical reliability.
-
-◈ Concept Prototyping: Have an idea that hasn't been done yet? We provide the R&D and proof-of-concept testing required to validate your most ambitious projects, helping you navigate from the whiteboard to a functional reality.
-
-◈ Software & Hardware Development: We build the intelligence behind the art. From low-level firmware for hardware control to high-level interactive applications, we create bespoke software solutions tailored to your specific infrastructure needs.
-
-So how can we be helpful to your project?`,
+◈ Interactive Brand Experiences: Immersive environments blending custom hardware and intuitive interfaces.
+◈ Art Installation: Robotics, pneumatics, and precision electronics for large-scale spatial wonders.
+◈ Concept Prototyping: R&D and proof-of-concept testing to validate ambitious ideas.
+◈ Software & Hardware Development: Firmware, sensor networks, and bespoke digital infrastructure.`,
       follow: ["process", "projects", "collab"],
     },
     projects: {
-      text: `Our work spans brands, galleries, and live events:
+      text: `Our portfolio covers prominent brands and artistic institutions:
 
-— AGAIN Coffee & Sound - SĒN, the in-store Matcha Whisking Robot
-— Wardah - Immersive installation for a giant local beauty company
-— OPPO - Interactive in-store installation that can be controlled by the client's product; a smartphone
-— National Gallery - Revitalization of the courtyard area, keeping the heritage alive
-— Djarum Super MLD - Playful brand experience in the biggest Jazz Festival in SEA
-— Gaia Hotel - Art installation as a center piece decoration in the service industry
-— Frestea - An area of immersive experiences for a beverage brand
-— Esplanade Singapore - Art Exhibition alongside artist Bagus Pandega
-... and many more on /gallery
-
-Do you see anything that inspires you?`,
+— AGAIN Coffee & Sound - SĒN Matcha Whisking Robot
+— Wardah - Curved LED matrix interactive light tunnel
+— OPPO - 1,000+ LEDs reactive store installation
+— Bagus Pandega & ROH - Kinetic art exhibitions (Jakarta, Singapore, New York)
+— Gaia Hotel - Central kinetic art installation
+— Museum Nasional - 30m² interactive floor projection
+— Java Jazz & Frestea - Immersive spatial experiences`,
       follow: ["services", "works", "collab"],
     },
     process: {
-      text: `Any studio can make a beautiful installation.
-Any software house can build a POS. What no one else in Indonesia, and very few in SEA - can do is close the full loop.
+      text: `Every CLW project follows our closed-loop philosophy:
 
-Every CLW project follows one loop:
-
-SENSE → UNDERSTAND → RESPOND → LEARN
-
-Sense - Detect the world. Sensors, cameras, inputs, presence
-Understand - Give meaning to data. Processing, patterns intent, context
-Respond - Return something beautiful & useful to the human
-Learn - System improves. Data compounds, value grows
-
-Do you think this speaks to your value of working?`,
+SENSE → Detect the physical world via sensors, cameras, and presence.
+UNDERSTAND → Process patterns, intent, and contextual data.
+RESPOND → Deliver dynamic digital or kinetic reactions.
+LEARN → The system iteratively improves through real engagement.`,
       follow: ["services", "projects", "collab"],
     },
     works: {
-      text: `Whether it's a high-end brand, a museum, or a solo artist, we love partnering with people who have a vision. We help them bridge the gap between their concept and the technical execution.`,
+      text: `Whether with global brands, museums, or solo contemporary artists, we engineer the invisible machinery that brings creative vision to life. Check our /gallery route for ongoing archives.`,
       follow: ["services", "process", "collab"],
     },
     collab: {
       text: `We offer:
-— Project-based engagements
-— Long-term technology retainers - your permanent creative-tech team
-— Studio On Demand - monthly retainer for brands that need ongoing support
-— and more tailor made services based on your needs
+— Project-based engineering & design
+— Studio on Demand / retainer partnerships
+— Hardware prototyping & firmware builds
 
-Let's talk more!
-→ counelabworks.com
-→ contact@counelabworks.com`,
+Inquire directly:
+→ contact@counelabworks.com
+→ Jl. Sukagalih No. 104, Bandung`,
       follow: ["services", "projects", "works"],
     },
   },
   fallback: {
-    text: `I'm CLW's studio assistant. I can tell you about our work, services, process, or how to collaborate. Pick a topic below or ask something specific.`,
+    text: `Coune LabWorks Assistant. Select a topic below or type an inquiry regarding projects, services, or technical capabilities.`,
     follow: ["services", "projects", "process", "works", "collab"],
   },
   keywords: {
@@ -118,7 +101,7 @@ export default function AssistantWidget() {
   const [messages, setMessages] = useState<Message[]>([
     {
       from: "bot",
-      text: "Coune LabWorks Assistant online. Explore studio capabilities, projects, or send a message.",
+      text: "Coune LabWorks Assistant online. Explore capabilities or inquire about collaborations.",
       followTopics: ["services", "projects", "process", "collab"],
     },
   ]);
@@ -147,7 +130,6 @@ export default function AssistantWidget() {
     setInput("");
     const lower = query.toLowerCase();
 
-    // Find keyword match
     let matchedTopic: TopicId | null = null;
     for (const [topicId, words] of Object.entries(KB.keywords)) {
       if (words.some((w) => lower.includes(w))) {
@@ -169,7 +151,7 @@ export default function AssistantWidget() {
         { from: "user", text: query },
         {
           from: "bot",
-          text: `Thanks for asking. For custom project inquiries, send an email directly to contact@counelabworks.com or select one of the topics below.`,
+          text: `Thank you for reaching out. For bespoke technical inquiries, contact our studio team directly at contact@counelabworks.com.`,
           followTopics: ["services", "projects", "collab"],
         },
       ]);
@@ -177,21 +159,26 @@ export default function AssistantWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 font-mono text-xs">
-      {/* Panel Window */}
+    <div className="fixed bottom-6 right-6 z-50 font-sans text-xs">
+      {/* Panel Window matching .clw-panel */}
       {isOpen && (
-        <div className="mb-3 w-[90vw] max-w-[380px] h-[480px] bg-[#0c0c0c] border border-[#262626] rounded-lg shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-          {/* Header */}
-          <div className="px-4 py-3 bg-[#141414] border-b border-[#222222] flex items-center justify-between text-neutral-300">
+        <div className="mb-3 w-[92vw] max-w-[380px] h-[500px] bg-white border border-[#c6c6c6] rounded shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+          {/* Header matching .hd */}
+          <div className="px-4 py-3 bg-[#fbfbfb] border-b border-[#e5e5e5] flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[11px] uppercase tracking-wider font-semibold">
-                CLW Assistant
-              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f60c09] animate-pulse" />
+              <div className="flex flex-col">
+                <span className="font-sans font-bold text-xs lowercase text-[#1a1a1a]">
+                  counelabworks
+                </span>
+                <span className="font-mono text-[10px] text-neutral-500">
+                  sketch to circuit
+                </span>
+              </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-neutral-400 hover:text-white transition-colors"
+              className="text-neutral-400 hover:text-black transition-colors"
               aria-label="Close Assistant"
             >
               <X size={16} />
@@ -199,7 +186,7 @@ export default function AssistantWidget() {
           </div>
 
           {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-white">
             {messages.map((m, idx) => (
               <div
                 key={idx}
@@ -208,10 +195,10 @@ export default function AssistantWidget() {
                 }`}
               >
                 <div
-                  className={`p-3 rounded max-w-[85%] whitespace-pre-wrap leading-relaxed ${
+                  className={`p-3 rounded max-w-[85%] whitespace-pre-wrap leading-relaxed text-xs ${
                     m.from === "user"
-                      ? "bg-white text-black font-sans text-xs"
-                      : "bg-[#181818] border border-[#282828] text-neutral-300 text-[11px]"
+                      ? "bg-[#090909] text-white"
+                      : "bg-[#f5f5f5] text-[#1a1a1a] border border-[#e5e5e5]"
                   }`}
                 >
                   {m.text}
@@ -227,7 +214,7 @@ export default function AssistantWidget() {
                         <button
                           key={topicId}
                           onClick={() => handleSelectTopic(topicId)}
-                          className="px-2 py-1 rounded bg-[#1c1c1c] hover:bg-[#282828] text-[10px] text-neutral-400 hover:text-white border border-[#303030] transition-colors"
+                          className="px-2.5 py-1 rounded bg-[#ffffff] hover:bg-[#f0f0f0] text-[11px] text-[#1a1a1a] border border-[#d6d6d6] transition-colors"
                         >
                           {topic.icon} {topic.label}
                         </button>
@@ -241,18 +228,18 @@ export default function AssistantWidget() {
           </div>
 
           {/* Input Box */}
-          <div className="p-3 bg-[#111111] border-t border-[#222222] flex items-center gap-2">
+          <div className="p-3 bg-[#fbfbfb] border-t border-[#e5e5e5] flex items-center gap-2">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
               placeholder="Ask about projects, services..."
-              className="flex-1 bg-black border border-[#2a2a2a] rounded px-3 py-1.5 text-white text-[11px] focus:outline-none focus:border-neutral-500 placeholder:text-neutral-600"
+              className="flex-1 bg-white border border-[#c6c6c6] rounded px-3 py-1.5 text-[#1a1a1a] text-xs focus:outline-none focus:border-black placeholder:text-neutral-400"
             />
             <button
               onClick={handleSend}
-              className="p-1.5 rounded bg-white text-black hover:bg-neutral-200 transition-colors"
+              className="p-1.5 rounded bg-[#090909] text-white hover:bg-neutral-800 transition-colors"
               aria-label="Send query"
             >
               <Send size={14} />
@@ -261,11 +248,11 @@ export default function AssistantWidget() {
         </div>
       )}
 
-      {/* Floating Launcher Button */}
+      {/* Floating Red Launcher Button matching .clw-launcher */}
       <div className="flex justify-end">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-12 h-12 rounded-full bg-white text-black hover:bg-neutral-200 shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
+          className="w-12 h-12 bg-[#f60a0a] hover:bg-[#d90808] text-white shadow-xl flex items-center justify-center transition-transform duration-200 hover:scale-105 active:scale-95"
           aria-label={isOpen ? "Close Assistant" : "Open Assistant"}
         >
           {isOpen ? <X size={20} /> : <MessageSquare size={20} />}
