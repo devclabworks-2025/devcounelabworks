@@ -159,11 +159,9 @@ export default function AssistantWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 font-sans text-xs">
-      {/* Panel Window matching .clw-panel */}
+    <div className="fixed right-4 top-3.5 z-50 font-sans text-xs sm:right-[4.6vw]">
       {isOpen && (
-        <div className="mb-3 w-[92vw] max-w-[380px] h-[500px] bg-white border border-[#c6c6c6] rounded shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-          {/* Header matching .hd */}
+        <div className="absolute right-0 top-full mt-3 flex h-[500px] w-[92vw] max-w-[380px] flex-col overflow-hidden rounded border border-[#c6c6c6] bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-200">
           <div className="px-4 py-3 bg-[#fbfbfb] border-b border-[#e5e5e5] flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#f60c09] animate-pulse" />
@@ -248,12 +246,12 @@ export default function AssistantWidget() {
         </div>
       )}
 
-      {/* Floating Red Launcher Button matching .clw-launcher */}
       <div className="flex justify-end">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-12 h-12 bg-[#f60a0a] hover:bg-[#d90808] text-white shadow-xl flex items-center justify-center transition-transform duration-200 hover:scale-105 active:scale-95"
+          className="flex h-10 w-10 items-center justify-center bg-[#f60c09] text-white transition-colors hover:bg-[#d90808]"
           aria-label={isOpen ? "Close Assistant" : "Open Assistant"}
+          aria-expanded={isOpen}
         >
           {isOpen ? <X size={20} /> : <MessageSquare size={20} />}
         </button>

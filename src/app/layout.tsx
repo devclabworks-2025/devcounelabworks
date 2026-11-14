@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import AssistantWidget from "@/components/common/AssistantWidget";
 
 const khTeka = localFont({
   src: [
@@ -139,7 +138,6 @@ export default function RootLayout({
         <Header />
         <main className="flex-1 w-full">{children}</main>
         <Footer />
-        <AssistantWidget />
       </body>
     </html>
   );
