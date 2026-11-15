@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function CollaborationCTA() {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <section className="relative w-full bg-white pt-24 pb-0 overflow-hidden border-b border-[#ebebeb]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 flex flex-col items-center text-center relative z-10">
@@ -25,30 +23,21 @@ export default function CollaborationCTA() {
           </Link>
         </div>
 
-        {/* 3D Circular Orb with LETS CREATE text */}
+        {/* 3D sphere button */}
         <div className="mt-12 sm:mt-16 mb-8 relative">
           <Link
             href="/contactus"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="group relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-500 hover:scale-105"
-            style={{
-              background:
-                "radial-gradient(64% 66% at 36.9% 29.8%, rgb(255, 255, 255) 0%, rgba(247, 247, 247, 0.8) 37%, rgba(220, 220, 220, 0.95) 100%)",
-              boxShadow:
-                "0 20px 40px -10px rgba(0,0,0,0.15), inset -8px -8px 12px rgba(0,0,0,0.08), inset 8px 8px 12px rgba(255,255,255,0.9)",
-              border: "1px solid rgba(220, 220, 220, 0.8)",
-            }}
+            aria-label="Let's create — contact us"
+            className="cta-sphere group relative flex h-40 w-40 cursor-pointer items-center justify-center rounded-full sm:h-48 sm:w-48"
           >
-            {/* Spinning Text / Badge */}
-            <div className="flex flex-col items-center justify-center select-none">
-              <span className="font-sans font-black text-2xl sm:text-3xl tracking-[-0.08em] text-[#090909] group-hover:text-[#f60c09] transition-colors">
-                LETS
-              </span>
-              <span className="font-sans font-black text-2xl sm:text-3xl tracking-[-0.08em] text-[#090909] group-hover:text-[#f60c09] transition-colors">
+            <span aria-hidden="true" className="cta-sphere__surface" />
+            <span aria-hidden="true" className="cta-sphere__orbit">
+              <span className="cta-sphere__label">LET’S</span>
+              <span className="cta-sphere__label cta-sphere__label--back">
                 CREATE
               </span>
-            </div>
+            </span>
+            <span className="sr-only">Let’s create</span>
           </Link>
         </div>
       </div>

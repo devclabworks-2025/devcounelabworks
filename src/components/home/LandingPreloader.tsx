@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import useResponsiveVideoSource from "@/components/home/useResponsiveVideoSource";
 
 const PRELOADER_DURATION_MS = 6000;
-const INTRO_VIDEO_URL =
+const INTRO_VIDEO_DESKTOP_URL =
   "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Mainpage/CLW_LogoReveal_4-4.mp4";
+const INTRO_VIDEO_MOBILE_URL =
+  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Mainpage/Main%20Comp%20Phone.mp4";
 
 const SCROLL_KEYS = new Set([
   "Space",
@@ -18,6 +21,10 @@ const SCROLL_KEYS = new Set([
 
 export default function LandingPreloader() {
   const [isVisible, setIsVisible] = useState(true);
+  const introVideoSrc = useResponsiveVideoSource(
+    INTRO_VIDEO_DESKTOP_URL,
+    INTRO_VIDEO_MOBILE_URL,
+  );
 
   useEffect(() => {
     if (!isVisible) return;
@@ -68,18 +75,24 @@ export default function LandingPreloader() {
       onContextMenu={(event) => event.preventDefault()}
       style={{ touchAction: "none" }}
     >
-      <video
-        className="h-full w-full object-cover"
-        src={INTRO_VIDEO_URL}
-        autoPlay
-        muted
-        playsInline
-        preload="auto"
-        onError={(event) => {
-          console.error("Unable to load the landing intro video.", event.currentTarget.error);
-          setIsVisible(false);
-        }}
-      />
+      {introVideoSrc && (
+        <video
+          key={introVideoSrc}
+          className="h-full w-full object-cover"
+          src={introVideoSrc}
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          onError={(event) => {
+            console.error(
+              "Unable to load the landing intro video.",
+              event.currentTarget.error,
+            );
+            setIsVisible(false);
+          }}
+        />
+      )}
     </div>
   );
 }

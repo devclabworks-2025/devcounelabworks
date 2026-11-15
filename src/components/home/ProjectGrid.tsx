@@ -10,12 +10,15 @@ function ProjectCard({ project }: { project: ShowcaseProject }) {
 
   const card = (
     <div
-      className="group flex flex-col gap-2.5 w-full cursor-pointer mb-8 sm:mb-12"
+      className="group flex flex-col gap-1 w-full cursor-pointer mb-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Container */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#f0f0f0]">
+      <div
+        className="relative w-full overflow-hidden bg-[#f0f0f0]"
+        style={{ aspectRatio: `${project.imageWidth} / ${project.imageHeight}` }}
+      >
         {/* Main Image */}
         <Image
           src={project.image1}
@@ -41,19 +44,16 @@ function ProjectCard({ project }: { project: ShowcaseProject }) {
           />
         )}
 
-        {/* Explore badge on linked projects */}
-        {project.href && (
-          <div className="absolute top-3 right-3 px-2 py-0.5 bg-black/80 text-white text-[10px] font-mono tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-            EXPLORE ↗
-          </div>
-        )}
       </div>
 
       {/* Project Title */}
-      <div className="pt-1">
-        <h3 className="font-sans font-medium text-xs sm:text-[13px] tracking-[-0.05em] uppercase text-[#090909] group-hover:text-[#f60c09] transition-colors">
+      <div>
+        <h3 className="font-sans font-medium text-[8px] leading-tight tracking-[-0.05em] uppercase text-[#090909] group-hover:text-[#f60c09] transition-colors">
           {project.title}
         </h3>
+        <p className="font-sans text-[8px] leading-tight tracking-[-0.05em] text-[#090909]">
+          {project.year}
+        </p>
       </div>
     </div>
   );
@@ -82,10 +82,10 @@ export default function ProjectGrid() {
   );
 
   return (
-    <section id="work" className="w-full bg-white pt-12 pb-20 px-4 sm:px-8 border-b border-[#ebebeb]">
-      <div className="max-w-[1400px] mx-auto">
+    <section id="work" className="w-full bg-white pt-2 pb-0 px-0 border-b border-[#ebebeb]">
+      <div className="w-full">
         {/* 3-Column Asymmetric Grid matching Framer stacks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 items-start">
           {/* Column 1 / Stack 1 */}
           <div className="flex flex-col w-full">
             {stack1.map((p) => (
@@ -94,14 +94,14 @@ export default function ProjectGrid() {
           </div>
 
           {/* Column 2 / Stack 2 */}
-          <div className="flex flex-col w-full lg:pt-8">
+          <div className="flex flex-col w-full">
             {stack2.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
           </div>
 
           {/* Column 3 / Stack 3 */}
-          <div className="flex flex-col w-full lg:pt-16">
+          <div className="flex flex-col w-full">
             {stack3.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}

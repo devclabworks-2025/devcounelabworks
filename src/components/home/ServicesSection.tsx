@@ -2,9 +2,16 @@
 
 import React from "react";
 import Link from "next/link";
+import Script from "next/script";
 
 const PORTFOLIO_URL =
   "https://docs.google.com/presentation/d/e/2PACX-1vTIHbopaXAvpcHNj6a1yTfjRNU68swgAjfye1PTfVg9nd-3hFZCVfef3azOGEc__u1DdfxEzCto2EWT/pub?start=false&loop=false&delayms=60000&slide=id.g1c1457de5f13d530_138";
+const MODEL_VIEWER_SCRIPT =
+  "https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js";
+const MASCOT_MODEL_URL =
+  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Mainpage/disk%20mascot%2090deg%20transp%203%20(1).glb";
+const MODEL_ENVIRONMENT_URL =
+  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Mainpage/white_studio_06_1k.hdr";
 
 export default function ServicesSection() {
   return (
@@ -47,13 +54,28 @@ export default function ServicesSection() {
         <div className="my-12 sm:my-8 flex flex-col items-center justify-center z-10 pointer-events-auto">
           {/* Animated 3D Disk Mascot */}
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 flex items-center justify-center">
-            <video
-              src="/videos/rotating-disket.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-contain mix-blend-multiply pointer-events-none"
+            <model-viewer
+              src={MASCOT_MODEL_URL}
+              alt="Rotating Coune LabWorks disk mascot"
+              auto-rotate
+              rotation-per-second="60deg"
+              camera-controls
+              disable-zoom
+              disable-tap
+              touch-action="none"
+              exposure={1.8}
+              environment-image={MODEL_ENVIRONMENT_URL}
+              shadow-intensity={0}
+              tone-mapping="commerce"
+              scale="0.3 0.3 0.3"
+              field-of-view="16deg"
+              camera-target="0m 0m 0m"
+              style={{
+                width: "100%",
+                height: "100%",
+                touchAction: "none",
+                background: "transparent",
+              }}
             />
           </div>
 
@@ -106,6 +128,15 @@ export default function ServicesSection() {
           </div>
         </div>
       </div>
+      <Script
+        src={MODEL_VIEWER_SCRIPT}
+        type="module"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+        onError={() =>
+          console.error("Unable to load the model-viewer runtime.")
+        }
+      />
     </section>
   );
 }

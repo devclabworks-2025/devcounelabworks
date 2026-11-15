@@ -5,6 +5,8 @@ export interface ShowcaseProject {
   category: string;
   image1: string;
   image2: string;
+  imageWidth: number;
+  imageHeight: number;
   href?: string;
 }
 
@@ -31,6 +33,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     category: "EXHIBITION",
     image1: "/images/GV5L96x5EJgkPPmFdep0hIEfvM.jpg",
     image2: "/images/bzRTfHRt4BbBNCSfvzzVqbeMow.png",
+    imageWidth: 4032,
+    imageHeight: 3024,
   },
   {
     id: "piled",
@@ -39,6 +43,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     category: "INTERACTIVE ART INSTALLATION",
     image1: "/images/KwhT4M6S9UtXg01u9cb6BCwGX20.png",
     image2: "/images/dB6SAeyaIyjxm1I7PpYkGhLszHQ.png",
+    imageWidth: 1536,
+    imageHeight: 2048,
   },
   {
     id: "oppo",
@@ -47,6 +53,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     category: "ART INSTALLATION",
     image1: "/images/Zq0ktFD84aXASodSIUWNiyh3Ps.png",
     image2: "/images/7c26vOTXLmqzwH4a97XlMhTZ8og.png",
+    imageWidth: 1842,
+    imageHeight: 1716,
     href: "/oppo",
   },
   {
@@ -56,6 +64,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     category: "ART INSTALLATION",
     image1: "/images/DUhFE7TLyTWTkmmc1KO8BHuIjRc.jpg",
     image2: "/images/NSuJqABdJ7vjV5MKtXgX2MFlM.jpg",
+    imageWidth: 1536,
+    imageHeight: 2048,
     href: "/roh",
   },
   {
@@ -65,6 +75,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     category: "BRAND ACTIVATION",
     image1: "/images/SmOls3H4U8vqU52LRN384EHxCD8.png",
     image2: "/images/CVv6lBHXDukaaWOpoNS5jOU7BQ.png",
+    imageWidth: 4032,
+    imageHeight: 3024,
   },
   {
     id: "senmatcha",
@@ -73,6 +85,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     category: "ROBOTICS & SOUND",
     image1: "/images/anx1MfkVmpxS3dOGNe37mubKw.jpg",
     image2: "/images/RxuWk8bpc5Wc9PuxsDCd6P1zB6E.png",
+    imageWidth: 2252,
+    imageHeight: 3033,
   },
   {
     id: "wardah",
@@ -81,6 +95,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     category: "BRAND ACTIVATION",
     image1: "/images/1WAFTqc8oR7lbeUuDx2pxoXcCU.png",
     image2: "/images/OWqB6XZ8DzyUHPXYfgcTWkC5qI.png",
+    imageWidth: 1127,
+    imageHeight: 758,
     href: "/wardah",
   },
   {
@@ -90,6 +106,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     category: "ART INSTALLATION",
     image1: "/images/n1ZaoL09LNWW387NCksVn2tji0.png",
     image2: "/images/fLa2HOhBhH25yPcThcYvn1ptc.png",
+    imageWidth: 1536,
+    imageHeight: 2048,
   },
   {
     id: "esplanade",
@@ -98,6 +116,8 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     category: "ART INSTALLATION",
     image1: "/images/e7XcW0XgR3YG8ZjPihGbkVoxs.png",
     image2: "/images/GRmMTuP3SPt83tQ4tf1mhYNH5c.png",
+    imageWidth: 1200,
+    imageHeight: 750,
   },
 ];
 
