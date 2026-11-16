@@ -12,6 +12,7 @@ export interface ShowcaseProject {
 
 export interface ProjectDetail {
   slug: string;
+  logo?: string;
   title: string;
   category: string;
   year: string;
@@ -20,8 +21,8 @@ export interface ProjectDetail {
   slides: {
     src: string;
     alt: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
   }[];
 }
 
@@ -35,6 +36,7 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     image2: "/images/bzRTfHRt4BbBNCSfvzzVqbeMow.png",
     imageWidth: 4032,
     imageHeight: 3024,
+    href: "/dialogue",
   },
   {
     id: "piled",
@@ -45,6 +47,7 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     image2: "/images/dB6SAeyaIyjxm1I7PpYkGhLszHQ.png",
     imageWidth: 1536,
     imageHeight: 2048,
+    href: "/piled",
   },
   {
     id: "oppo",
@@ -77,6 +80,7 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     image2: "/images/CVv6lBHXDukaaWOpoNS5jOU7BQ.png",
     imageWidth: 4032,
     imageHeight: 3024,
+    href: "/javajazz",
   },
   {
     id: "senmatcha",
@@ -87,6 +91,7 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     image2: "/images/RxuWk8bpc5Wc9PuxsDCd6P1zB6E.png",
     imageWidth: 2252,
     imageHeight: 3033,
+    href: "/again",
   },
   {
     id: "wardah",
@@ -108,6 +113,7 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     image2: "/images/fLa2HOhBhH25yPcThcYvn1ptc.png",
     imageWidth: 1536,
     imageHeight: 2048,
+    href: "/gaia",
   },
   {
     id: "esplanade",
@@ -118,6 +124,7 @@ export const SHOWCASE_PROJECTS: ShowcaseProject[] = [
     image2: "/images/GRmMTuP3SPt83tQ4tf1mhYNH5c.png",
     imageWidth: 1200,
     imageHeight: 750,
+    href: "/esplanade",
   },
 ];
 
@@ -155,6 +162,7 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
   },
   roh: {
     slug: "roh",
+    logo: "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Detail%20Projects/LogoROH.png",
     title: "Bagus Pandega Art Installation",
     category: "Interactive Brand Experience",
     year: "2024",
@@ -165,16 +173,12 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
     slides: [
       {
-        src: "/images/2RcikzOr5D02bUbjfKadvsJRRBI.png",
+        src: "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Detail%20Projects/ROH-1.png",
         alt: "Bagus Pandega Kinetic Installation View",
-        width: 648,
-        height: 486,
       },
       {
-        src: "/images/sRbYAERO7WAo56nMDwzZf4cYc4w.jpg",
-        alt: "Motorized Systems and Logic Units",
-        width: 3024,
-        height: 4032,
+        src: "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Detail%20Projects/ROH-2.JPG",
+        alt: "ROH installation detail",
       },
     ],
   },
@@ -190,18 +194,95 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     ],
     slides: [
       {
-        src: "/images/FmWAZNjQhJDxG4FTArEOJqpi2Xs.png",
+        src: "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Detail%20Projects/WARDAH-1.png",
         alt: "Wardah Curved LED Matrix Light Tunnel",
-        width: 648,
-        height: 486,
       },
       {
-        src: "/images/rzYxuf4IvGhMmAKx3fuB5agZw.jpg",
+        src: "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Detail%20Projects/WARDAH-2.jpg",
         alt: "Immersive Visitor Experience Senayan City",
-        width: 3024,
-        height: 4032,
       },
     ],
+  },
+  dialogue: {
+    slug: "dialogue",
+    title: "DIA LO GUE Exhibition",
+    category: "Exhibition",
+    year: "2025",
+    headline: "Project details coming soon",
+    paragraphs: [
+      "Project copywriting will be added soon.",
+      "Additional project details will be added when provided.",
+    ],
+    slides: [
+      {
+        src: "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Detail%20Projects/DIALOGUE-1.png",
+        alt: "DIA LO GUE exhibition",
+      },
+      {
+        src: "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Detail%20Projects/DIALOGUE-2.png",
+        alt: "DIA LO GUE exhibition detail",
+      },
+    ],
+  },
+  piled: {
+    slug: "piled",
+    title: "Piled Interactive Art Installation",
+    category: "Interactive Art Installation",
+    year: "2025",
+    headline: "Project details coming soon",
+    paragraphs: [
+      "Project copywriting will be added soon.",
+      "Additional project details will be added when provided.",
+    ],
+    slides: [],
+  },
+  javajazz: {
+    slug: "javajazz",
+    title: "Java Jazz Brand Activation",
+    category: "Brand Activation",
+    year: "2025",
+    headline: "Project details coming soon",
+    paragraphs: [
+      "Project copywriting will be added soon.",
+      "Additional project details will be added when provided.",
+    ],
+    slides: [],
+  },
+  gaia: {
+    slug: "gaia",
+    title: "Gaia Hotel Art Installation",
+    category: "Art Installation",
+    year: "2025",
+    headline: "Project details coming soon",
+    paragraphs: [
+      "Project copywriting will be added soon.",
+      "Additional project details will be added when provided.",
+    ],
+    slides: [],
+  },
+  again: {
+    slug: "again",
+    title: "Sen Matcha Robot / Again Coffee & Sound",
+    category: "Robotics & Sound",
+    year: "2025",
+    headline: "Project details coming soon",
+    paragraphs: [
+      "Project copywriting will be added soon.",
+      "Additional project details will be added when provided.",
+    ],
+    slides: [],
+  },
+  esplanade: {
+    slug: "esplanade",
+    title: "Esplanade Art Installation",
+    category: "Art Installation",
+    year: "2025",
+    headline: "Project details coming soon",
+    paragraphs: [
+      "Project copywriting will be added soon.",
+      "Additional project details will be added when provided.",
+    ],
+    slides: [],
   },
   musiumnasional: {
     slug: "musiumnasional",

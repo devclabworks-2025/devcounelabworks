@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/oppo",
     "/roh",
     "/wardah",
+    "/dialogue",
+    "/piled",
+    "/javajazz",
+    "/gaia",
+    "/again",
+    "/esplanade",
     "/musiumnasional",
     "/gallery",
   ];

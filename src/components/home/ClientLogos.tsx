@@ -57,14 +57,14 @@ export default function ClientLogos() {
                   {row.map((logo) => (
                     <div
                       key={logo.id}
-                      className="relative h-12 w-36 flex-shrink-0 grayscale contrast-125 transition-opacity hover:opacity-70 sm:h-14 sm:w-44 md:h-16 md:w-52"
+                      className="relative h-14 w-44 flex-shrink-0 grayscale contrast-125 transition-opacity hover:opacity-70 sm:h-16 sm:w-52 md:h-20 md:w-64"
                     >
                       <Image
                         src={logo.src}
                         alt={logo.alt}
                         fill
                         className="object-contain"
-                        sizes="(max-width: 640px) 144px, (max-width: 768px) 176px, 208px"
+                        sizes="(max-width: 640px) 176px, (max-width: 768px) 208px, 256px"
                       />
                     </div>
                   ))}

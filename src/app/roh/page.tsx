@@ -1,7 +1,6 @@
-import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { PROJECT_DETAILS } from "@/data/projects";
-import ProjectDetailHero from "@/components/projects/ProjectDetailHero";
+import RohProjectDetail from "@/components/projects/RohProjectDetail";
 
 export const metadata: Metadata = {
   title: "ROH — Bagus Pandega Art Installation",
@@ -10,10 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function RohPage() {
-  const project = PROJECT_DETAILS.roh;
-  return (
-    <div className="relative w-full bg-white">
-      <ProjectDetailHero project={project} />
-    </div>
-  );
+  return <RohProjectDetail project={PROJECT_DETAILS.roh} />;
 }

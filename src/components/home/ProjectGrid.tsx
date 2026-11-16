@@ -47,11 +47,11 @@ function ProjectCard({ project }: { project: ShowcaseProject }) {
       </div>
 
       {/* Project Title */}
-      <div>
-        <h3 className="font-sans font-medium text-[8px] leading-tight tracking-[-0.05em] uppercase text-[#090909] group-hover:text-[#f60c09] transition-colors">
+      <div className="px-1 py-1">
+        <h3 className="font-sans font-medium text-[10px] leading-tight tracking-[-0.05em] uppercase text-[#090909] group-hover:text-[#f60c09] transition-colors">
           {project.title}
         </h3>
-        <p className="font-sans text-[8px] leading-tight tracking-[-0.05em] text-[#090909]">
+        <p className="font-sans text-[10px] leading-tight tracking-[-0.05em] text-[#090909]">
           {project.year}
         </p>
       </div>

@@ -78,6 +78,42 @@ body {
   background-size: 16px 16px;
 }
 
+.about-ticker-track {
+  animation: about-ticker 30s linear infinite;
+}
+
+.about-ticker-window {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+}
+
+@keyframes about-ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-ticker-track {
+    animation: none;
+  }
+}
+
 .cta-sphere {
   perspective: 900px;
   isolation: isolate;
@@ -128,24 +164,23 @@ body {
 .cta-sphere__label {
   position: absolute;
   top: 50%;
-  left: calc(50% + 24px);
+  left: calc(50% + 1.8rem);
   color: #090909;
-  font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+  font-size: clamp(1.5rem, 4.2vw, 2.1rem);
   font-weight: 400;
   letter-spacing: -0.07em;
   line-height: 1;
   white-space: nowrap;
   user-select: none;
   backface-visibility: hidden;
-  transform: translate(-50%, -50%) translateZ(72px);
+  transform: translate(-50%, -50%) translateZ(5.4rem);
 }
 
 .cta-sphere__label--back {
-  left: calc(50% - 24px);
-  filter: blur(1px);
-  opacity: 0.2;
-  backface-visibility: visible;
-  transform: translate(-50%, -50%) rotateY(180deg) translateZ(72px);
+  left: calc(50% - 1.8rem);
+  filter: none;
+  opacity: 1;
+  transform: translate(-50%, -50%) rotateY(180deg) translateZ(5.4rem);
 }
 
 @keyframes cta-sphere-orbit {

@@ -7,8 +7,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export interface CarouselSlide {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 interface CineRevealCarouselProps {

@@ -1,7 +1,6 @@
-import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { PROJECT_DETAILS } from "@/data/projects";
-import ProjectDetailHero from "@/components/projects/ProjectDetailHero";
+import ProjectDetailPage from "@/components/projects/ProjectDetailPage";
 
 export const metadata: Metadata = {
   title: "Wardah — Light Tunnel as Event Beacon",
@@ -10,10 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function WardahPage() {
-  const project = PROJECT_DETAILS.wardah;
   return (
-    <div className="relative w-full bg-white">
-      <ProjectDetailHero project={project} />
-    </div>
+    <ProjectDetailPage project={PROJECT_DETAILS.wardah} brand="WARDAH" />
   );
 }
