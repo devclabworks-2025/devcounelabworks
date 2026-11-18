@@ -13,6 +13,20 @@ const WORLD_MAP_VIDEO_URL =
   "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/About/CLW_WorldMap.webm";
 const WORLD_MAP_VIDEO_FALLBACK_URL = "/media/about-world-map.mp4";
 
+// Set each src to the public Supabase Storage URL for that logo.
+const LOGO_ARCHIVE = [
+  { src: "", alt: "Coune logo variation 1" },
+  { src: "", alt: "Coune logo variation 2" },
+  { src: "", alt: "Coune logo variation 3" },
+  { src: "", alt: "Coune logo variation 4" },
+  { src: "", alt: "Coune logo variation 5" },
+  { src: "", alt: "Coune logo variation 6" },
+  { src: "", alt: "Coune logo variation 7" },
+  { src: "", alt: "Coune logo variation 8" },
+  { src: "", alt: "Coune logo variation 9" },
+  { src: "", alt: "Coune logo variation 10" },
+];
+
 const LOCATIONS = [
   "JAKARTA",
   "SINGAPORE",
@@ -98,6 +112,29 @@ function ImageFrame({
           role="img"
           aria-label={`${alt} image container`}
           className="absolute inset-0 bg-[#fcfcfc]"
+        />
+      )}
+    </div>
+  );
+}
+
+function LogoTile({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative aspect-[1.65] overflow-hidden bg-white">
+      {src ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          unoptimized
+          sizes="(max-width: 640px) 50vw, 25vw"
+          className="object-contain p-6 sm:p-8"
+        />
+      ) : (
+        <div
+          role="img"
+          aria-label={`${alt} image container`}
+          className="absolute inset-0"
         />
       )}
     </div>
@@ -264,6 +301,42 @@ export default function AboutPageView() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section
+          aria-label="Coune logo archive"
+          className="mt-12 border border-neutral-500 bg-neutral-500 sm:mt-16"
+        >
+          <div className="grid grid-cols-2 gap-px sm:grid-cols-4">
+            {LOGO_ARCHIVE.slice(0, 8).map((logo) => (
+              <LogoTile key={logo.alt} {...logo} />
+            ))}
+
+            <div className="col-span-2 flex min-h-36 flex-col justify-center bg-white px-5 py-4 sm:min-h-0 sm:px-8">
+              <div className="mb-2 flex items-center justify-between border-b border-neutral-400 pb-2">
+                <h2 className="font-sans text-sm font-semibold">LORE</h2>
+                <span
+                  aria-hidden="true"
+                  className="text-xl font-medium text-[#f60c09]"
+                >
+                  +
+                </span>
+              </div>
+              <h3 className="text-xs font-semibold text-neutral-700 sm:text-sm">
+                This studio was not founded to be a studio,
+              </h3>
+              <p className="mt-1 text-[11px] leading-snug text-neutral-500 sm:text-sm">
+                Coune began as an artist — trained in new media art and creative
+                programming in France, drawn to generative visuals, drawn to
+                installations that behave rather than simply exist. The work
+                found its audience before a company was ever considered.
+              </p>
+            </div>
+
+            {LOGO_ARCHIVE.slice(8).map((logo) => (
+              <LogoTile key={logo.alt} {...logo} />
+            ))}
           </div>
         </section>
 
