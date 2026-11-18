@@ -45,7 +45,7 @@ export default function CollaborationCTA() {
       {/* Perspective Floor Grid Image Asset */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
-          src="/images/bg-cta.png"
+          src="/assets/images/bg-cta.png"
           alt="Perspective Floor Grid"
           fill
           className="object-cover object-center opacity-25"

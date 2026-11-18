@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import useResponsiveVideoSource from "@/components/home/useResponsiveVideoSource";
 
 const HERO_VIDEO_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Mainpage/WhatsApp%20Video%202025-08-21%20at%2016.49.43.mp4";
+  "/assets/videos/home-hero.mp4";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -32,7 +32,7 @@ export default function Hero() {
             loop
             muted
             playsInline
-            poster="/images/5ILRvlYXf72kHSVHqpa3snGzjU.jpg"
+            poster="/assets/images/5ILRvlYXf72kHSVHqpa3snGzjU.jpg"
             className="w-full h-full object-cover object-center"
           >
             <source src={videoSrc} type="video/mp4" />
@@ -80,7 +80,7 @@ export default function Hero() {
         <div className="pt-4 sm:pt-6">
           <div className="relative w-[130px] sm:w-[213px] h-[20px]">
             <Image
-              src="/images/QQSH0EFe72FE80s0WBSXXqmkzhI.png"
+              src="/assets/images/QQSH0EFe72FE80s0WBSXXqmkzhI.png"
               alt="Coune LabWorks"
               fill
               className="object-contain object-left"

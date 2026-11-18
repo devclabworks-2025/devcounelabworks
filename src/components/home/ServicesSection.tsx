@@ -8,9 +8,9 @@ const PORTFOLIO_URL =
 const MODEL_VIEWER_SCRIPT =
   "https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js";
 const MASCOT_MODEL_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Mainpage/disk%20mascot%2090deg%20transp%203%20(1).glb";
+  "/assets/models/disk-mascot.glb";
 const MODEL_ENVIRONMENT_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Mainpage/white_studio_06_1k.hdr";
+  "/assets/models/studio-environment.hdr";
 
 export default function ServicesSection() {
   return (

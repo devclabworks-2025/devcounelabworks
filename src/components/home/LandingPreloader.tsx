@@ -4,10 +4,8 @@ import { useEffect, useState } from "react";
 import useResponsiveVideoSource from "@/components/home/useResponsiveVideoSource";
 
 const PRELOADER_DURATION_MS = 6000;
-const INTRO_VIDEO_DESKTOP_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Mainpage/CLW_LogoReveal_4-4.mp4";
-const INTRO_VIDEO_MOBILE_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/Mainpage/Main%20Comp%20Phone.mp4";
+const INTRO_VIDEO_DESKTOP_URL = "/assets/videos/CLW_LogoReveal_4-4.mp4";
+const INTRO_VIDEO_MOBILE_URL = "/assets/videos/Main_Comp_Phone.mp4";
 
 const SCROLL_KEYS = new Set([
   "Space",

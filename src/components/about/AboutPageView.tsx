@@ -2,29 +2,28 @@ import Image from "next/image";
 import CollaborationCTA from "@/components/home/CollaborationCTA";
 
 const ABOUT_IMAGE_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/About/Image-about-1.png";
+  "/assets/images/about/wordmark.png";
 const PHILOSOPHY_IMAGE_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/About/Image-about2.png";
+  "/assets/images/about/philosophy.png";
 const PRINCIPLES_BACKGROUND_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/About/Image-about3.png";
+  "/assets/images/about/principles-background.png";
 const ORIGIN_IMAGE_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/About/Image-about4.png";
+  "/assets/images/about/origin.png";
 const WORLD_MAP_VIDEO_URL =
-  "https://kbolczifieutsqbpnaxi.supabase.co/storage/v1/object/public/CLW%20Asset/About/CLW_WorldMap.webm";
-const WORLD_MAP_VIDEO_FALLBACK_URL = "/media/about-world-map.mp4";
+  "/assets/media/about-world-map.webm";
+const WORLD_MAP_VIDEO_FALLBACK_URL = "/assets/media/about-world-map.mp4";
 
-// Set each src to the public Supabase Storage URL for that logo.
 const LOGO_ARCHIVE = [
-  { src: "", alt: "Coune logo variation 1" },
-  { src: "", alt: "Coune logo variation 2" },
-  { src: "", alt: "Coune logo variation 3" },
-  { src: "", alt: "Coune logo variation 4" },
-  { src: "", alt: "Coune logo variation 5" },
-  { src: "", alt: "Coune logo variation 6" },
-  { src: "", alt: "Coune logo variation 7" },
-  { src: "", alt: "Coune logo variation 8" },
-  { src: "", alt: "Coune logo variation 9" },
-  { src: "", alt: "Coune logo variation 10" },
+  { src: "/assets/images/logos/CLW_Logo-10.png", alt: "Coune logo variation 10" },
+  { src: "/assets/images/logos/CLW_Logo-11.png", alt: "Coune logo variation 11" },
+  { src: "/assets/images/logos/CLW_Logo-12.png", alt: "Coune logo variation 12" },
+  { src: "/assets/images/logos/CLW_Logo-13.png", alt: "Coune logo variation 13" },
+  { src: "/assets/images/logos/CLW_Logo-14.png", alt: "Coune logo variation 14" },
+  { src: "/assets/images/logos/CLW_Logo-15.png", alt: "Coune logo variation 15" },
+  { src: "/assets/images/logos/CLW_Logo-16.png", alt: "Coune logo variation 16" },
+  { src: "/assets/images/logos/CLW_Logo-17.png", alt: "Coune logo variation 17" },
+  { src: "/assets/images/logos/CLW_Logo-18.png", alt: "Coune logo variation 18" },
+  { src: "/assets/images/logos/CLW_Logo-19.png", alt: "Coune logo variation 19" },
 ];
 
 const LOCATIONS = [
@@ -94,9 +93,7 @@ function ImageFrame({
   priority = false,
 }: ImageFrameProps) {
   return (
-    <div
-      className={`relative overflow-hidden border-2 border-[#f60c09] bg-white ${className}`}
-    >
+    <div className={`relative overflow-hidden bg-white ${className}`}>
       {src ? (
         <Image
           src={src}
@@ -223,7 +220,7 @@ export default function AboutPageView() {
 
         <section aria-label="Studio locations" className="mt-16 sm:mt-20">
           <LocationTicker />
-          <div className="relative mt-4 aspect-[1.76] w-full overflow-hidden border-2 border-[#f60c09] bg-white">
+          <div className="relative mt-4 aspect-[1.76] w-full overflow-hidden bg-white">
             <video
               autoPlay
               muted
@@ -267,7 +264,7 @@ export default function AboutPageView() {
 
         <section
           aria-label="The principles"
-          className="relative mt-12 min-h-[500px] overflow-hidden border-2 border-[#f60c09] bg-[#fcfcfc] sm:mt-16 sm:min-h-[620px] lg:min-h-[680px]"
+          className="relative mt-12 min-h-[500px] overflow-hidden bg-[#fcfcfc] sm:mt-16 sm:min-h-[620px] lg:min-h-[680px]"
         >
           <Image
             src={PRINCIPLES_BACKGROUND_URL}
@@ -277,7 +274,7 @@ export default function AboutPageView() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="relative z-10 mx-4 my-6 border-2 border-[#3046ff] bg-white/95 p-4 sm:mx-8 sm:my-8 sm:p-6 md:absolute md:right-[6%] md:top-[9%] md:my-0 md:h-[82%] md:w-[36%] md:max-w-[390px] md:p-5">
+          <div className="relative z-10 mx-4 my-6 bg-white/95 p-4 sm:mx-8 sm:my-8 sm:p-6 md:absolute md:right-[6%] md:top-[9%] md:my-0 md:h-[82%] md:w-[36%] md:max-w-[390px] md:p-5">
             <div className="mb-3 flex items-center justify-between border-b border-neutral-300 pb-2">
               <h2 className="font-sans text-[10px] font-semibold uppercase">
                 [THE PRINCIPLES]
@@ -292,7 +289,7 @@ export default function AboutPageView() {
                   key={principle.num}
                   className="border border-neutral-300 bg-white"
                 >
-                  <span className="inline-block bg-[#f60c09] px-2 py-0.5 font-sans text-[9px] font-semibold text-white">
+                  <span className="inline-block font-sans text-[9px] font-semibold text-[#f60c09]">
                     {principle.num}
                   </span>
                   <p className="px-2 py-1 text-[9px] leading-snug text-neutral-700 sm:text-[10px]">

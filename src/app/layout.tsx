@@ -7,12 +7,12 @@ import Footer from "@/components/layout/Footer";
 const khTeka = localFont({
   src: [
     {
-      path: "../../public/fonts/KHTekaTRIAL-Light.woff2",
+      path: "../../public/assets/fonts/KHTekaTRIAL-Light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../../public/fonts/KHTekaTRIAL-Medium.woff2",
+      path: "../../public/assets/fonts/KHTekaTRIAL-Medium.woff2",
       weight: "500",
       style: "normal",
     },
@@ -24,12 +24,12 @@ const khTeka = localFont({
 const instrumentSerif = localFont({
   src: [
     {
-      path: "../../public/fonts/InstrumentSerif-Regular.woff2",
+      path: "../../public/assets/fonts/InstrumentSerif-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/InstrumentSerif-Italic.woff2",
+      path: "../../public/assets/fonts/InstrumentSerif-Italic.woff2",
       weight: "400",
       style: "italic",
     },
@@ -41,12 +41,12 @@ const instrumentSerif = localFont({
 const chivoMono = localFont({
   src: [
     {
-      path: "../../public/fonts/ChivoMono-Regular.woff2",
+      path: "../../public/assets/fonts/ChivoMono-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/ChivoMono-Medium.woff2",
+      path: "../../public/assets/fonts/ChivoMono-Medium.woff2",
       weight: "500",
       style: "normal",
     },
@@ -58,7 +58,7 @@ const chivoMono = localFont({
 const inter = localFont({
   src: [
     {
-      path: "../../public/fonts/Inter-Regular.woff2",
+      path: "../../public/assets/fonts/Inter-Regular.woff2",
       weight: "400",
       style: "normal",
     },
@@ -90,11 +90,11 @@ export const metadata: Metadata = {
   creator: "Coune LabWorks",
   icons: {
     icon: [
-      { url: "/images/YUdSzw0WinlcbTGORe8jVV625U0.png", media: "(prefers-color-scheme: light)" },
-      { url: "/images/gcVJ8vgsIGEke5rZ5LkRV67qw0.png", media: "(prefers-color-scheme: dark)" },
+      { url: "/assets/images/YUdSzw0WinlcbTGORe8jVV625U0.png", media: "(prefers-color-scheme: light)" },
+      { url: "/assets/images/gcVJ8vgsIGEke5rZ5LkRV67qw0.png", media: "(prefers-color-scheme: dark)" },
     ],
-    shortcut: "/images/YUdSzw0WinlcbTGORe8jVV625U0.png",
-    apple: "/images/YUdSzw0WinlcbTGORe8jVV625U0.png",
+    shortcut: "/assets/images/YUdSzw0WinlcbTGORe8jVV625U0.png",
+    apple: "/assets/images/YUdSzw0WinlcbTGORe8jVV625U0.png",
   },
   openGraph: {
     title: "Coune LabWorks",
@@ -103,7 +103,7 @@ export const metadata: Metadata = {
     siteName: "Coune LabWorks",
     images: [
       {
-        url: "/images/EYKaoybaeWZUMN95xou7D5YAdT4.png",
+        url: "/assets/images/EYKaoybaeWZUMN95xou7D5YAdT4.png",
         width: 1200,
         height: 630,
         alt: "Coune LabWorks",
@@ -116,7 +116,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Coune LabWorks",
     description: "Those with wings shall keep flying",
-    images: ["/images/EYKaoybaeWZUMN95xou7D5YAdT4.png"],
+    images: ["/assets/images/EYKaoybaeWZUMN95xou7D5YAdT4.png"],
   },
   robots: {
     index: true,

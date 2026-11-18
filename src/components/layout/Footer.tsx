@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6 lg:gap-7">
             {/* CLW Wordmark */}
             <Image
-              src="/images/footer/logo-clw-white.png"
+              src="/assets/images/footer/logo-clw-white.png"
               alt="Coune LabWorks"
               width={400}
               height={55}
@@ -137,7 +137,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4 justify-between">
             <div className="flex flex-col gap-3">
               <Image
-                src="/images/footer/clw.svg"
+                src="/assets/images/footer/clw.svg"
                 alt="CLW"
                 width={120}
                 height={32}
@@ -145,7 +145,7 @@ export default function Footer() {
               />
 
               <Image
-                src="/images/footer/logostripe.png"
+                src="/assets/images/footer/logostripe.png"
                 alt=""
                 aria-hidden="true"
                 width={410}
