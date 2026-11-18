@@ -41,10 +41,10 @@ export default function Header() {
                 <RollingText text="/Contact" />
               </Link>
               <Link
-                href="/#work"
+                href="/gallery"
                 className="transition-colors hover:text-[#f60c09]"
               >
-                <RollingText text="/Work /" />
+                <RollingText text="/Gallery /" />
               </Link>
             </nav>
 
@@ -68,9 +68,6 @@ export default function Header() {
               </Link>
               <Link href="/contactus" onClick={() => setMobileMenuOpen(false)}>
                 Contact /
-              </Link>
-              <Link href="/#work" onClick={() => setMobileMenuOpen(false)}>
-                Work /
               </Link>
               <Link href="/gallery" onClick={() => setMobileMenuOpen(false)}>
                 Gallery /
